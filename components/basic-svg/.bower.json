@@ -1,0 +1,25 @@
+{
+  "name": "basic-svg",
+  "description": "basic svg propotype that will work with custom slider",
+  "main": "basic-svg.html",
+  "dependencies": {
+    "polymer": "Polymer/polymer#^1.4.0"
+  },
+  "devDependencies": {
+    "iron-component-page": "PolymerElements/iron-component-page#^1.0.0",
+    "iron-demo-helpers": "PolymerElements/iron-demo-helpers#^1.0.0",
+    "web-component-tester": "^4.0.0",
+    "webcomponentsjs": "webcomponents/webcomponentsjs#^0.7.0"
+  },
+  "homepage": "https://github.com/angelsalazar/basic-svg",
+  "_release": "6bebf2601d",
+  "_resolution": {
+    "type": "branch",
+    "branch": "master",
+    "commit": "6bebf2601d4297c648d94360d1c3984ed3ab5954"
+  },
+  "_source": "git://github.com/angelsalazar/basic-svg.git",
+  "_target": "master",
+  "_originalSource": "angelsalazar/basic-svg",
+  "_direct": true
+}
