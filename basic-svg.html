@@ -1,0 +1,90 @@
+<link rel="import" href="../polymer/polymer.html">  
+
+<dom-module id="basic-svg">
+  <template>
+    <style>
+        :host {
+            display: block;
+        }
+        .svg-wrapper{
+            border: 1px solid gray;
+        }
+    </style>
+    <svg id="svg" width="0" height="0" class="svg-wrapper">
+        <circle id="circle" cx="0" cy="0" r="0" stroke="black" stroke-width="1" fill="rgba(0,0,0,1)" />
+    </svg>
+    
+  </template>
+
+  <script>
+      Polymer({
+          is: 'basic-svg',
+          properties: {
+              //Radius value
+              radius: {
+                  type: Number,
+                  value: 0,
+                  notify: true          //if true,then radiusChanged is triggered
+              },
+              //Canvas height
+              height: Number,
+              //Canvas width
+              width: Number,
+              //Center x
+              cx: Number,
+              //Center y
+              cy: Number,
+              //Red value
+              red: {
+                  type: Number,
+                  value: 0,
+                  notify:true
+              },
+              //Green value
+              green: {
+                  type: Number,
+                  value: 0,
+                  notify:true
+              },
+              //Blue value
+              blue: {
+                  type: Number,
+                  value: 0,
+                  notify:true
+              }
+          },
+          observers:[
+            '_radiusChanged(radius)',
+            '_redChanged(red)',
+            '_greenChanged(green)',
+            '_blueChanged(blue)'
+          ],
+          ready:function(){
+              this._setUp()
+          },
+          _radiusChanged: function(radius) {
+              console.log('new radius => ' + radius);
+              this.$.svg.childNodes[1].attributes.r.value = radius;
+          },
+          _redChanged: function(red) {
+              var rgba = "rgba("+ red +","+this.green+","+this.blue+",1)";
+              this.$.svg.childNodes[1].attributes.fill.value = rgba;
+          },
+          _greenChanged: function(green) {
+              var rgba = "rgba("+ this.red +","+green+","+this.blue+",1)";
+              this.$.svg.childNodes[1].attributes.fill.value = rgba;
+          },
+          _blueChanged: function(blue) {
+              var rgba = "rgba("+ this.red +","+this.green+","+blue+",1)";
+              this.$.svg.childNodes[1].attributes.fill.value = rgba;
+          },
+          _setUp(){
+              this.$.svg.attributes.width.value = this.width;
+              this.$.svg.attributes.height.value = this.height;
+              this.$.svg.childNodes[1].attributes.cx.value = this.cx;
+              this.$.svg.childNodes[1].attributes.cy.value = this.cy;
+          }
+
+    });
+  </script>
+</dom-module>

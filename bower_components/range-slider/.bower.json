@@ -1,0 +1,26 @@
+{
+  "name": "range-slider",
+  "description": "this is prototype of a range slider",
+  "main": "range-slider.html",
+  "dependencies": {
+    "polymer": "Polymer/polymer#^1.4.0"
+  },
+  "devDependencies": {
+    "iron-component-page": "PolymerElements/iron-component-page#^1.0.0",
+    "iron-demo-helpers": "PolymerElements/iron-demo-helpers#^1.0.0",
+    "web-component-tester": "^4.0.0",
+    "webcomponentsjs": "webcomponents/webcomponentsjs#^0.7.0"
+  },
+  "homepage": "https://github.com/angelsalazar/range-slider",
+  "version": "0.0.1",
+  "_release": "0.0.1",
+  "_resolution": {
+    "type": "version",
+    "tag": "v0.0.1",
+    "commit": "bcfdb94a1b08206ceebb19f08a108b1dd8ff4264"
+  },
+  "_source": "git://github.com/angelsalazar/range-slider.git",
+  "_target": "^0.0.1",
+  "_originalSource": "angelsalazar/range-slider",
+  "_direct": true
+}
