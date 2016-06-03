@@ -19,12 +19,13 @@
   <script>
       Polymer({
           is: 'basic-svg',
+          //Defining basic-svg properties
           properties: {
               //Radius value
               radius: {
                   type: Number,
                   value: 0,
-                  notify: true          //if true,then radiusChanged is triggered
+                  notify: true          //if true,then _radiusChanged is triggered
               },
               //Canvas height
               height: Number,
@@ -38,46 +39,52 @@
               red: {
                   type: Number,
                   value: 0,
-                  notify:true
+                  notify:true           //if true, then _redChanged is triggered
               },
               //Green value
               green: {
                   type: Number,
                   value: 0,
-                  notify:true
+                  notify:true           //if true, then _greenChanged is triggered
               },
               //Blue value
               blue: {
                   type: Number,
                   value: 0,
-                  notify:true
+                  notify:true           //if true, then _blueChanged is triggered
               }
           },
+          //Defining observers for keeping track if properties (the ones with notify:true) are modified
           observers:[
             '_radiusChanged(radius)',
             '_redChanged(red)',
             '_greenChanged(green)',
             '_blueChanged(blue)'
           ],
+          //Ready function, execute once the element is rendered
           ready:function(){
-              this._setUp()
+              this._setUp()                                             //set up canvas properties
           },
+          //update red property
           _radiusChanged: function(radius) {
-              console.log('new radius => ' + radius);
-              this.$.svg.childNodes[1].attributes.r.value = radius;
+              this.$.svg.childNodes[1].attributes.r.value = radius;     //Update the svg circle radius   
           },
+          //Run when red property is modified
           _redChanged: function(red) {
-              var rgba = "rgba("+ red +","+this.green+","+this.blue+",1)";
-              this.$.svg.childNodes[1].attributes.fill.value = rgba;
+              var rgba = "rgba("+ red +","+this.green+","+this.blue+",1)";      //create new rgba color based on the updated red value
+              this.$.svg.childNodes[1].attributes.fill.value = rgba;            //assign new rgba to the circle
           },
+          //update green property
           _greenChanged: function(green) {
-              var rgba = "rgba("+ this.red +","+green+","+this.blue+",1)";
-              this.$.svg.childNodes[1].attributes.fill.value = rgba;
+              var rgba = "rgba("+ this.red +","+green+","+this.blue+",1)";      //create new rgba color based on the updated green value 
+              this.$.svg.childNodes[1].attributes.fill.value = rgba;            //assign new rgba to the circle
           },
+          //update blue property
           _blueChanged: function(blue) {
               var rgba = "rgba("+ this.red +","+this.green+","+blue+",1)";
               this.$.svg.childNodes[1].attributes.fill.value = rgba;
           },
+          //Initializa width, height, center x and center y
           _setUp(){
               this.$.svg.attributes.width.value = this.width;
               this.$.svg.attributes.height.value = this.height;
